@@ -8,7 +8,6 @@ export default function AuthCallback() {
 	useEffect(() => {
 		const handleAuthCallback = async () => {
 			try {
-				// Get the session from the URL hash
 				const { data, error } = await supabase.auth.getSession();
 
 				if (error) {
@@ -18,8 +17,7 @@ export default function AuthCallback() {
 				}
 
 				if (data.session) {
-					// Success! Redirect to your main app
-					move('/loading'); // or wherever you want to send users
+					move('/loading');
 				} else {
 					move('/login');
 				}
