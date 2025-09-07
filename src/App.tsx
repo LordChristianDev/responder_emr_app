@@ -13,6 +13,7 @@ import { AuthenticatedLayout, ProtectedRoute } from "@/components/layout/Protect
 import LandingPage from "@/features/authentication/pages/LandingPage";
 import LoginPage from "@/features/authentication/pages/LoginPage";
 import LoadingPage from "@/features/authentication/pages/LoadingPage";
+import AuthCallback from "@/features/authentication/pages/AuthCallback";
 import NotFound from "@/features/authentication/pages/NotFound";
 
 import HomePage from "@/features/dashboard/pages/HomePage";
@@ -36,6 +37,7 @@ const App = () => {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/loading" element={<LoadingPage />} />
+                <Route path="/auth/callback" element={<AuthCallback />} />
                 <Route path="*" element={
                   <ProtectedRoute>
                     <AuthenticatedLayout>
