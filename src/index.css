@@ -1,0 +1,305 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+@import "tailwindcss";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-light: var(--secondary-light);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-emergency: var(--emergency);
+  --color-emergency-foreground: var(--emergency-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-pulse-medical: pulse-heartbeat 1.5s ease-in-out infinite;
+  --animate-fade-in-medical: fade-in-up 0.6s ease-out;
+
+  --background-image-landing: url("/images/background/natural-disaster.jpg");
+  --background-image-auth: url("/images/background/disaster-response.jpg");
+}
+
+@layer base {
+
+  /* Light Mode */
+  :root {
+    --background: oklch(0.98 0.02 240);
+    --foreground: oklch(0.25 0.05 240);
+
+    --card: oklch(1.0 0 0);
+    --card-foreground: oklch(0.25 0.05 240);
+
+    --popover: oklch(0.96 0.01278 244.482);
+    --popover-foreground: oklch(0.25 0.05 240);
+
+    --primary: oklch(0.55 0.18 240);
+    --primary-foreground: oklch(1.0 0 0);
+    --primary-light: oklch(0.65 0.15 240);
+    --primary-dark: oklch(0.45 0.21 240);
+
+    --secondary: oklch(0.55 0.12 150);
+    --secondary-foreground: oklch(1.0 0 0);
+    --secondary-light: oklch(0.65 0.10 150);
+
+    --muted: oklch(0.96 0.01 240);
+    --muted-foreground: oklch(0.55 0.03 240);
+
+    --accent: oklch(0.94 0.02 240);
+    --accent-foreground: oklch(0.25 0.05 240);
+
+    --destructive: oklch(0.60 0.20 20);
+    --destructive-foreground: oklch(1.0 0 0);
+    --emergency: oklch(0.60 0.20 20);
+    --emergency-foreground: oklch(1.0 0 0);
+
+    --border: oklch(0.88 0.02 240);
+    --input: oklch(0.95 0.01 240);
+    --ring: oklch(0.55 0.18 240);
+
+    --sidebar-background: oklch(0.98 0 0);
+    --sidebar-foreground: oklch(0.35 0.02 240);
+    --sidebar-primary: oklch(0.20 0.03 240);
+    --sidebar-primary-foreground: oklch(0.98 0 0);
+    --sidebar-accent: oklch(0.96 0.01 240);
+    --sidebar-accent-foreground: oklch(0.20 0.03 240);
+    --sidebar-border: oklch(0.91 0.02 240);
+    --sidebar-ring: oklch(0.65 0.20 240);
+  }
+
+  /* Dark Mode */
+  .dark {
+    --background: oklch(0.12 0.05 240);
+    --foreground: oklch(0.92 0.02 240);
+
+    --card: oklch(0.18 0.04 240);
+    --card-foreground: oklch(0.92 0.02 240);
+
+    --popover: oklch(0.18 0.04 240);
+    --popover-foreground: oklch(0.92 0.02 240);
+
+    --primary: oklch(0.70 0.15 240);
+    --primary-foreground: oklch(0.12 0.05 240);
+    --primary-light: oklch(0.80 0.12 240);
+    --primary-dark: oklch(0.60 0.18 240);
+
+    --secondary: oklch(0.65 0.10 150);
+    --secondary-foreground: oklch(0.12 0.05 240);
+    --secondary-light: oklch(0.75 0.08 150);
+
+    --muted: oklch(0.22 0.03 240);
+    --muted-foreground: oklch(0.70 0.02 240);
+
+    --accent: oklch(0.24 0.03 240);
+    --accent-foreground: oklch(0.92 0.02 240);
+
+    --destructive: oklch(0.65 0.18 20);
+    --destructive-foreground: oklch(1.0 0 0);
+    --emergency: oklch(0.65 0.18 20);
+    --emergency-foreground: oklch(1.0 0 0);
+
+    --border: oklch(0.26 0.03 240);
+    --input: oklch(0.24 0.03 240);
+    --ring: oklch(0.70 0.15 240);
+
+    --sidebar-background: oklch(0.15 0.03 240);
+    --sidebar-foreground: oklch(0.96 0.01 240);
+    --sidebar-primary: oklch(0.55 0.18 240);
+    --sidebar-primary-foreground: oklch(1.0 0 0);
+    --sidebar-accent: oklch(0.20 0.02 240);
+    --sidebar-accent-foreground: oklch(83.994% 0.06359 239.256);
+    --sidebar-border: oklch(0.20 0.02 240);
+    --sidebar-ring: oklch(0.65 0.20 240);
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-poppins);
+    font-feature-settings: "rlig" 1, "calt" 1;
+
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in oklch, var(--color-primary), oklch(47.11% 0.301 271.069)));
+  }
+
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, var(--color-card), var(--color-secondary));
+  }
+
+  .bg-gradient-accent {
+    background: linear-gradient(90deg, oklch(57.494% 0.22706 268.628), oklch(56.301% 0.29518 302.467));
+  }
+
+  .text-shadow-medical {
+    text-shadow: 0 2px 4px var(--color-primary / 30%);
+  }
+
+  .bg-medical-pattern {
+    background-image: radial-gradient(circle at 2px 2px, var(--color-primary / 10%) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .animate-emergency-pulse {
+    animation: pulse-heartbeat 1s ease-in-out infinite;
+  }
+
+  .animate-medical-fade {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .shadow-medical {
+    box-shadow: 0 4px 20px var(--color-primary / 15%);
+  }
+
+  .shadow-emergency {
+    box-shadow: 0 4px 20px var(--color-emergency / 25%);
+  }
+
+  .shadow-card-medical {
+    box-shadow: 0 2px 8px var(--color-foreground / 8%);
+  }
+}
+
+@layer components {
+  .landing {
+    @apply w-full flex bg-landing bg-cover bg-no-repeat;
+  }
+
+  .auth {
+    @apply w-full h-screen flex bg-auth bg-cover bg-no-repeat;
+  }
+
+  .medical-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  }
+
+  .emergency-gradient {
+    background: linear-gradient(135deg, var(--color-emergency), oklch(70% 0.15 20));
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  }
+
+  .medical-card {
+    @apply bg-card rounded-lg border shadow-lg transition-all duration-300 ease-out;
+    box-shadow: 0 2px 8px color-mix(in oklch, var(--color-foreground) 8%, transparent);
+  }
+
+  .emergency-button {
+    @apply bg-emergency text-emergency-foreground hover:opacity-90 transition-opacity duration-200;
+    box-shadow: 0 4px 80px color-mix(in oklch, var(--color-foreground) 25%, transparent);
+  }
+
+  .medical-input {
+    @apply bg-input border-border rounded-md px-3 py-2 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200;
+  }
+
+  .pulse-medical {
+    animation: var(--animate-pulse-medical);
+  }
+
+  .fade-in-medical {
+    animation: var(--animate-fade-in-medical);
+  }
+}
+
+@keyframes pulse-heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
