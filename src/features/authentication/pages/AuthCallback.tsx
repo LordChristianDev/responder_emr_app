@@ -1,29 +1,43 @@
 import { useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { useRoutes } from "@/hooks/useRoutes";
 
 export default function AuthCallback() {
+	const { move } = useRoutes();
+
 	useEffect(() => {
-		const handleCallback = async () => {
-			const { data, error } = await supabase.auth.getSession();
+		const handleAuthCallback = async () => {
+			try {
+				// Get the session from the URL hash
+				const { data, error } = await supabase.auth.getSession();
 
-			if (error) {
-				console.error("Auth callback error:", error);
-				window.location.replace("/login"); // fallback
-				return;
-			}
+				if (error) {
+					console.error('Auth error:', error);
+					move('/login');
+					return;
+				}
 
-			if (data.session) {
-				// ✅ Session established
-				console.log("Session finalized:", data.session);
-				window.location.replace("/loading"); // or your home page
-			} else {
-				// await supabase.auth.setSessionFromUrl({ storeSession: true });
-				window.location.replace("/loading");
+				if (data.session) {
+					// Success! Redirect to your main app
+					move('/loading'); // or wherever you want to send users
+				} else {
+					move('/login');
+				}
+			} catch (error) {
+				console.error('Callback error:', error);
+				move('/login');
 			}
 		};
 
-		handleCallback();
+		handleAuthCallback();
 	}, []);
 
-	return <p>Signing you in...</p>;
+	return (
+		<div className="flex items-center justify-center min-h-screen">
+			<div className="text-center">
+				<h2>Authenticating...</h2>
+				<p>Please wait while we sign you in.</p>
+			</div>
+		</div>
+	);
 }
